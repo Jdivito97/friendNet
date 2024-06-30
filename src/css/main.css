@@ -1,0 +1,161 @@
+@keyframes glitch-effect {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: translate(0);
+  }
+  5% {
+    filter: hue-rotate(45deg);
+    transform: translate(50px, -50px);
+  }
+
+  10% {
+    filter: hue-rotate(90deg);
+    transform: translate(-30px, 30px);
+  }
+  15% {
+    filter: hue-rotate(180deg);
+    transform: translate(100px, -100px);
+  }
+  20% {
+    filter: hue-rotate(360deg);
+    transform: translate(-50px, 50px);
+  }
+  25% {
+    filter: hue-rotate(270deg);
+    transform: translate(200px, -200px);
+  }
+  30% {
+    filter: hue-rotate(180deg);
+    transform: translate(20px, -20px);
+  }
+  35% {
+    filter: hue-rotate(90deg);
+    transform: translate(-100px, 100px);
+  }
+  40% {
+    filter: hue-rotate(45deg);
+    transform: translate(500px, -50px);
+  }
+  45% {
+    filter: hue-rotate(0deg);
+    transform: translate(-250px, 250px);
+  }
+  50% {
+    filter: hue-rotate(270deg);
+    transform: translate(-100px, 100px);
+  }
+  55% {
+    filter: hue-rotate(180deg);
+    transform: translate(50px, -50px);
+  }
+  60% {
+    filter: hue-rotate(0deg);
+    transform: translate(-500px, 500px);
+  }
+  65% {
+    filter: hue-rotate(45deg);
+    transform: translate(100px, -100px);
+  }
+  70% {
+    filter: hue-rotate(90deg);
+    transform: translate(150px, -150px);
+  }
+  75% {
+    filter: hue-rotate(180deg);
+    transform: translate(-50px, 50px);
+  }
+  80% {
+    filter: hue-rotate(360deg);
+    transform: translate(10px, 50px);
+  }
+  85% {
+    filter: hue-rotate(270deg);
+    transform: translate(-200px, 200px);
+  }
+  90% {
+    filter: hue-rotate(180deg);
+    transform: translate(-20px, 250px);
+  }
+  95% {
+    filter: hue-rotate(90deg);
+    transform: translate(100px, -100px);
+  }
+  100% {
+    filter: hue-rotate(45deg);
+    transform: translate(0);
+  }
+}
+.glitch {
+  animation: glitch-effect 0.5s infinite;
+}
+.background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+  animation: glitch-background 0.7s infinite; /* Faster and more jarring transitions */
+}
+
+/* More jarring color transitions */
+@keyframes glitch-background {
+  0% {
+    background-color: #000000;
+  }
+  5% {
+    background-color: #ff0000;
+  }
+  25% {
+    background-color: #00ff00;
+  }
+  30% {
+    background-color: #0000ff;
+  }
+  40% {
+    background-color: #ff00ff;
+  }
+  50% {
+    background-color: #00ffff;
+  }
+  80% {
+    background-color: #ffff00;
+  }
+  70% {
+    background-color: #976767;
+  }
+  80% {
+    background-color: #ffffff;
+  }
+  90% {
+    background-color: #ff8800;
+  }
+  100% {
+    background-color: #000000;
+  }
+}
+
+/* Utilizing CSS variables for random positioning */
+:root {
+  --random-x: 0px;
+  --random-y: 0px;
+}
+
+.background::before,
+.background::after {
+  content: "";
+  position: absolute;
+  width: 10px; /* Larger pixel size */
+  height: 10px; /* Larger pixel size */
+  background-color: white;
+  /* Removed the fading animation */
+}
+
+.background::before {
+  top: calc(100vh * var(--random-y));
+  left: calc(100vw * var(--random-x));
+}
+
+.background::after {
+  top: calc(100vh * var(--random-y));
+  left: calc(100vw * var(--random-x));
+}
